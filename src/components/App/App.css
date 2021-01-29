@@ -1,0 +1,26 @@
+main {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    font-family: Futura, Arial, sans-serif;
+    align-content: center;
+    text-align: center;
+    background-color: whitesmoke;
+    color: black;
+    text-decoration: none;
+}
+
+/* desktop */
+@media all and (min-width: 600px) {
+  body {
+    max-width: 90%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
