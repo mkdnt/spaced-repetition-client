@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm'
-import AuthApiService from '../../services/auth-api-service'
 
 
 class RegistrationRoute extends Component {
