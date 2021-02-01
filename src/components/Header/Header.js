@@ -31,9 +31,13 @@ class Header extends Component {
   renderLoginLink() {
     return (
       <nav>
-        <Link to='/login'>Login</Link>
-        {' '}
-        <Link to='/register'>Sign up</Link>
+        <Link to='/login'
+        style={{ textDecoration: "none", color: "inherit" }}>
+          Login</Link>
+        {' // '}
+        <Link to='/register'
+        style={{ textDecoration: "none", color: "inherit" }}>
+          Sign up</Link>
       </nav>
     )
   }
@@ -42,7 +46,8 @@ class Header extends Component {
     return (
       <header>
         <h1>
-          <Link to='/'>
+          <Link to='/'
+          style={{ textDecoration: "none", color: "inherit" }}>
             Spaced Repetition
           </Link>
         </h1>
