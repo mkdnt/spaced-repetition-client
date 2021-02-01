@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import config from '../../config'
 import UserContext from '../../contexts/UserContext'
 import Token from '../../services/token-service'
-import './LearningRoute.css'
 
 class LearningRoute extends Component {
   static contextType = UserContext
@@ -105,24 +105,24 @@ class LearningRoute extends Component {
         {this.state.answer == null && <h2 className='label'>Translate this:</h2>}
         {this.state.answer === 'correct' && (
           <div className='DisplayFeedback'>
-            <h2 className='label'>That's the right answer!</h2>
-            <p className='label'>We were looking for 
+            <h2 className='label'>Awesome!</h2>
+            <p>
             '<em className='word'>{this.state.translation}</em>',<br/>
-            for the translation of 
+            is the translation of 
             '<em className='check'>{this.state.nextWord.nextWord}</em>', <br/>
-            and you said '<em className='word'>{this.state.guess}</em>'.</p>
-              <p>Sweet!</p>
+            and you answered correctly with '<em className='word'>{this.state.guess}</em>'.</p>
+              <p>Nice work!</p>
           </div>
         )}
 
         {this.state.answer === 'incorrect' && (
           <div className='DisplayFeedback'>
-            <h2 className='label'>Sorry, that's the wrong answer!</h2>
-            <p className='label'>We were looking for 
+            <h2 className='label'>Sorry!</h2>
+            <p>
             '<em className='word'>{this.state.translation}</em>',<br/>
-            for the translation of 
+            is the translation of 
             '<em className='check'>{this.state.nextWord.nextWord}</em>', <br/>
-            and you said '<em className='word'>{this.state.guess}</em>'.</p>
+            and you answered incorrectly with '<em className='word'>{this.state.guess}</em>'.</p>
               <p>Try again!</p>
           </div>
         )}
@@ -134,7 +134,7 @@ class LearningRoute extends Component {
 
         {this.state.isClicked === false && (<fieldset>
           <label htmlFor='learn-guess-input'
-          className='label'>What does this translate to? </label>
+          className='label'>What is the translation of this word? </label>
           <br/>
           <input
             name='guess'
@@ -146,15 +146,23 @@ class LearningRoute extends Component {
             )}
             </fieldset>)}
 
-            <p className='label'>You have translated this correctly <em className='right'>{this.state.correct}</em> time(s)!</p>
-            <p className='label'>You have translated this incorrectly <em className='wrong'>{this.state.incorrect}</em> time(s).</p>
+            <p className='label'>You've gotten this translation correct <em className='right'>{this.state.correct}</em> time(s)!</p>
+            <p className='label'>You've gotten this translation incorrect <em className='wrong'>{this.state.incorrect}</em> time(s).</p>
             <div className='DisplayScore'>
               <p className='label'>Your total score is: 
               <em className='word'> {this.state.total}</em></p>
             </div>
         </form>
       {!!this.state.answer && (
-        <button onClick={() => this.handleNext()}>Gimme Another!</button>
+        <div>
+        <button onClick={() => this.handleNext()}>Next Word!</button>
+        <br />
+        <br />
+          <Link
+            to='/'>
+            Return to Dashboard
+          </Link>
+        </div>
       )}
       </div>
     );
