@@ -100,7 +100,7 @@ class LearningRoute extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ textDecoration: "none", color: "inherit", border: "1px solid black", padding: "5px", marginTop: "5px" }}>
       <form onSubmit={(e) => this.submitForm(e, this.context)}>
         {this.state.answer == null && <h2>Translate this:</h2>}
         {this.state.answer === 'correct' && (
@@ -146,10 +146,10 @@ class LearningRoute extends Component {
             )}
             </fieldset>)}
 
-            <p>You've gotten this translation correct <em>{this.state.correct}</em> time(s)!</p>
-            <p>You've gotten this translation incorrect <em>{this.state.incorrect}</em> time(s).</p>
+            <p>Total correct translations of this word <em>{this.state.correct}</em></p>
+            <p>Total incorrect translations of this word <em>{this.state.incorrect}</em></p>
             <div>
-              <p>Your total score is: 
+              <p>Your total score overall is: 
               <em> {this.state.total}</em></p>
             </div>
         </form>
