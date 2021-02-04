@@ -101,40 +101,40 @@ class LearningRoute extends Component {
   render() {
     return (
       <div>
-      <form className='form' onSubmit={(e) => this.submitForm(e, this.context)}>
-        {this.state.answer == null && <h2 className='label'>Translate this:</h2>}
+      <form onSubmit={(e) => this.submitForm(e, this.context)}>
+        {this.state.answer == null && <h2>Translate this:</h2>}
         {this.state.answer === 'correct' && (
-          <div className='DisplayFeedback'>
-            <h2 className='label'>Awesome!</h2>
+          <div>
+            <h2>Awesome!</h2>
             <p>
-            '<em className='word'>{this.state.translation}</em>',<br/>
+            '<em>{this.state.translation}</em>',<br/>
             is the translation of 
-            '<em className='check'>{this.state.nextWord.nextWord}</em>', <br/>
-            and you answered correctly with '<em className='word'>{this.state.guess}</em>'.</p>
+            '<em>{this.state.nextWord.nextWord}</em>', <br/>
+            and you answered correctly with '<em>{this.state.guess}</em>'.</p>
               <p>Nice work!</p>
           </div>
         )}
 
         {this.state.answer === 'incorrect' && (
-          <div className='DisplayFeedback'>
-            <h2 className='label'>Sorry!</h2>
+          <div>
+            <h2>Sorry!</h2>
             <p>
-            '<em className='word'>{this.state.translation}</em>',<br/>
+            '<em>{this.state.translation}</em>',<br/>
             is the translation of 
-            '<em className='check'>{this.state.nextWord.nextWord}</em>', <br/>
-            and you answered incorrectly with '<em className='word'>{this.state.guess}</em>'.</p>
+            '<em>{this.state.nextWord.nextWord}</em>', <br/>
+            and you answered incorrectly with '<em>{this.state.guess}</em>'.</p>
               <p>Try again!</p>
           </div>
         )}
 
-        <span className='word'>
+        <span>
           {this.state.isClicked === false && this.state.nextWord ?
             this.state.nextWord.nextWord : null}
         </span>
 
         {this.state.isClicked === false && (<fieldset>
           <label htmlFor='learn-guess-input'
-          className='label'>What is the translation of this word? </label>
+        >What is the translation of this word? </label>
           <br/>
           <input
             name='guess'
@@ -146,11 +146,11 @@ class LearningRoute extends Component {
             )}
             </fieldset>)}
 
-            <p className='label'>You've gotten this translation correct <em className='right'>{this.state.correct}</em> time(s)!</p>
-            <p className='label'>You've gotten this translation incorrect <em className='wrong'>{this.state.incorrect}</em> time(s).</p>
-            <div className='DisplayScore'>
-              <p className='label'>Your total score is: 
-              <em className='word'> {this.state.total}</em></p>
+            <p>You've gotten this translation correct <em>{this.state.correct}</em> time(s)!</p>
+            <p>You've gotten this translation incorrect <em>{this.state.incorrect}</em> time(s).</p>
+            <div>
+              <p>Your total score is: 
+              <em> {this.state.total}</em></p>
             </div>
         </form>
       {!!this.state.answer && (

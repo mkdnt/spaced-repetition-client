@@ -19,8 +19,7 @@ class LoginRoute extends Component {
     return (
       <section>
         <h2>Login</h2>
-        <br/>
-        <p>If you wish, please use the follwing account for demo purposes:</p>
+        <p>If you wish, please use the following account for demo purposes:</p>
         <p>Username: admin</p>
         <p>Password: pass</p>
         <LoginForm

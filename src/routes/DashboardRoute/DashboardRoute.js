@@ -26,7 +26,7 @@ class DashboardRoute extends Component {
 
   renderWords() {
     return this.context.words.map((word, i) => (
-      <div key={word.id}>
+      <div key={word.id} style={{ textDecoration: "none", color: "inherit", border: "1px solid black", padding: "5px", margin: "5px" }}>
         <h4>{word.original}</h4> 
         <span>Correct: {word.correct_count} </span>
         <br/>
@@ -42,11 +42,18 @@ class DashboardRoute extends Component {
           <p> Sorry, no words available! </p>
         ) : (
           <div>
-            <h3> {this.context.language} </h3>
+            <h2> {this.context.language} </h2>
             <p>Current Score: {this.context.total_score}</p>    
-            <a href="/learn" className='practice'>Practice</a>
+            <h3><a href="/learn" style={{ textDecoration: "none", color: "inherit", border: "1px solid black", padding: "5px" }}>Practice</a></h3>
+            <hr
+                style={{
+                  width: "75%",
+                  border: " 1px solid black",
+                  backgroundColor: "black",
+                }}
+              />
             <h2>Words to Learn</h2>        
-            <div className='center'>
+            <div>
               <ul
               style={{
               listStyleType: "none",
