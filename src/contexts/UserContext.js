@@ -147,6 +147,11 @@ export class UserProvider extends Component {
       })
   }
 
+  handleLoginSuccess = (history, location) => {
+		const destination = (location.state || {}).from || "/";
+		history.push(destination);
+	};
+
   render() {
     const value = {
       user: this.state.user,
@@ -172,6 +177,7 @@ export class UserProvider extends Component {
       response: this.state.response,
       feedback: this.state.feedback,
       setFeedback: this.setFeedback,
+      handleLoginSuccess: this.handleLoginSuccess,
     };
     return (
       <UserContext.Provider value={value}>
