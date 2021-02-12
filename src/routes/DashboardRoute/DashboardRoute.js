@@ -23,7 +23,7 @@ class DashboardRoute extends Component {
           })
     );
   }
-
+  
   renderWords() {
     return this.context.words.map((word, i) => (
       <div key={word.id} style={{ textDecoration: "none", color: "inherit", border: "1px solid black", padding: "5px", margin: "5px" }}>
