@@ -9,7 +9,7 @@ class RegistrationRoute extends Component {
     history: {
       push: () => {},
     },
-    location: {},
+    
   }
 
   static contextType = UserContext;
@@ -21,7 +21,7 @@ class RegistrationRoute extends Component {
 		})
 			.then((res) => {
 				this.context.processLogin(res.authToken);
-				this.context.handleLoginSuccess(this.props.history, this.props.location);
+				this.context.handleLoginSuccess(this.props.history);
 			})
 			.catch((res) => {
 				this.setState({ error: res.error });

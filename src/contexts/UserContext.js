@@ -147,8 +147,8 @@ export class UserProvider extends Component {
       })
   }
 
-  handleLoginSuccess = (history, location) => {
-		const destination = (location.state || {}).from || "/";
+  handleLoginSuccess = (history) => {
+		const destination = "/";
 		history.push(destination);
 	};
 
