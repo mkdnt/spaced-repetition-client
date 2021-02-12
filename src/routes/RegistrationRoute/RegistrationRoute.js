@@ -20,7 +20,7 @@ class RegistrationRoute extends Component {
 		})
 			.then((res) => {
 				this.context.processLogin(res.authToken);
-				this.context.handleLoginSuccess(this.props.history, this.props.location);
+				this.props.history.push('/');
 			})
 			.catch((res) => {
 				this.setState({ error: res.error });
