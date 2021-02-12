@@ -15,14 +15,17 @@ class RegistrationRoute extends Component {
   static contextType = UserContext;
 
   handleRegistrationSuccess = (username, password) => {
-		AuthApiService.postLogin({
-			username,
-			password,
-		})
-			.then((res) => {
-				this.context.processLogin(res.authToken);
-				this.context.handleLoginSuccess(this.props.history);
-			})
+    console.log('handleReg', username, password)
+			AuthApiService.postLogin({
+      username,
+      password,
+    })
+      .then(res => {
+        username.value = ''
+        password.value = ''
+        this.context.processLogin(res.authToken)
+        this.props.history.push('/')
+      })
 			.catch((res) => {
 				this.setState({ error: res.error });
 			});
